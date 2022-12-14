@@ -23,7 +23,7 @@ function CreateToDo() {
         {...register('toDo', {
           required: 'Please write a To Do',
         })}
-        placeholder='Write a to do'
+        placeholder={`Write a to do in the ${category} category.`}
       />
       <button>Add</button>
     </form>
