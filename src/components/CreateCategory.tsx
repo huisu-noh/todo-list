@@ -1,6 +1,22 @@
 import { useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import { categoriesState } from '../atoms';
+import { AiOutlinePlus } from 'react-icons/ai';
+import styled from 'styled-components';
+
+const Form = styled.form``;
+
+const Input = styled.input`
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  border: none;
+  font-size: 20px;
+`;
 
 interface IForm {
   newCategory: string;
@@ -22,15 +38,17 @@ function CreateCategory() {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleValid)}>
-      <input
+    <Form onSubmit={handleSubmit(handleValid)}>
+      <Input
         {...register('newCategory', {
           required: 'Please write a category',
         })}
         placeholder='Write a new category'
       />
-      <button>Add</button>
-    </form>
+      <Button>
+        <AiOutlinePlus />
+      </Button>
+    </Form>
   );
 }
 

@@ -1,7 +1,18 @@
 import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { categoriesState, categoryState, IToDo, toDoState } from '../atoms';
+import { categoriesState, IToDo, toDoState } from '../atoms';
+import { RiDeleteBin5Fill } from 'react-icons/ri';
+import styled from 'styled-components';
 
-function ToDo({ text, category, id }: IToDo) {
+const Button = styled.button`
+  border-radius: 8px;
+  font-size: 13px;
+`;
+
+const Span = styled.span`
+  font-size: 35px;
+`;
+
+function ToDo({ text, category, id }: IToDo): JSX.Element {
   const setToDos = useSetRecoilState(toDoState);
   const categories = useRecoilValue(categoriesState);
   const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,14 +39,16 @@ function ToDo({ text, category, id }: IToDo) {
 
   return (
     <li>
-      <span>{text}</span>
+      <Span>{text}</Span>
       {category &&
         categories.map((category) => (
-          <button name={category} onClick={onClick}>
+          <Button name={category} onClick={onClick}>
             {category}
-          </button>
+          </Button>
         ))}
-      <button onClick={onDelete}>Delete</button>
+      <Button onClick={onDelete}>
+        <RiDeleteBin5Fill />
+      </Button>
     </li>
   );
 }
