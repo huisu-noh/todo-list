@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import ToDoList from "./components/ToDoList";
+import Test from "./Test";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); 
@@ -75,8 +76,9 @@ button {
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <ToDoList />
+      {/* <GlobalStyle />
+      <ToDoList /> */}
+      <Test />
     </>
   );
 }
