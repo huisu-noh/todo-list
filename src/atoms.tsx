@@ -36,8 +36,3 @@ export const toDoSelector = selector({
     return toDos.filter((toDo) => toDo.category === category);
   },
 });
-
-export const testState = atom({
-  key: "test",
-  default: ["a", "b", "c", "d", "e", "f"],
-});
